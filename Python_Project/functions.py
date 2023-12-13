@@ -9,34 +9,26 @@ def choose_D():
     cursor.execute("SELECT * FROM airports")
     airport = cursor.fetchall()
     for departure in airport:
-        print(departure)
+        for i in range (2):
+            print(f"{departure[i]}", end=" ")
+        print()
     d = int(num_inp())
-    if d == 0:
-        departure = "MCZ - Aeroporto Palmares, Maceió, Brasil"
-    elif d == 1:
-        departure = "GRU - Aeroporto Internacional Guarulhos, São Paulo, Brasil"
-    elif d == 2:
-        departure = "SDU - Aeroporto Santos Dumont, Rio de Janeiro, Brasil"
-    elif d == 3:
-        departure = "CWB - Aeroporto Internacional Afonso Pena, Curitiba, Brasil"
-    return departure
+    cursor.execute(f"SELECT nome FROM airports WHERE id = {d}")
+    dp = cursor.fetchall()
+    return dp
 
 def choose_A():
     print('Choose your Arrival: ')
     cursor.execute("SELECT * FROM airports")
     airport = cursor.fetchall()
     for arrival in airport:
-        print(arrival)
+        for i in range (2):
+            print(f"{arrival[i]}", end=" ")
+        print()
     a = int(num_inp())
-    if a == 0:
-        arrival = "MCZ - Aeroporto Internacional Zumbi Palmares, Maceió, Brasil"
-    elif a == 1:
-        arrival = "GRU - Aeroporto Internacional Guarulhos, São Paulo, Brasil"
-    elif a == 2:
-        arrival = "SDU - Aeroporto Santos Dumont, Rio de Janeiro, Brasil"
-    elif a == 3:
-        arrival = "CWB - Aeroporto Internacional Afonso Pena, Curitiba, Brasil"
-    return arrival
+    cursor.execute(f"SELECT nome FROM airports WHERE id = {a}")
+    ar = cursor.fetchall()
+    return ar
 
 def create_oneWay(Departure, Arrival, oneWay):
     Date = input('Please, type the date with the format (dd/mm/aaaa): ')
@@ -49,7 +41,7 @@ def create_oneWay(Departure, Arrival, oneWay):
     print()
     print('##################################################')
     print("These are the information about the flight so far:")
-    print('Departure: ',Departure)
+    print('Departure: ', Departure)
     print('Arrival: ', Arrival)
     print('Date: ', Date)
     print('Number of adults: ', Adults)
@@ -70,34 +62,15 @@ def create_oneWay(Departure, Arrival, oneWay):
 
 def planeSchedule():
     print('Choose the schedule:')
-    print('Press 0 to 01:00')
-    print('Press 1 to 03:45')
-    print('Press 2 to 06:00')
-    print('Press 3 to 08:45')
-    print('Press 4 to 10:00')
-    print('Press 5 to 15:45')
-    print('Press 6 to 17:00')
-    print('Press 7 to 21:00')
-    print('Press 8 to 23:45')
+    cursor.execute("SELECT * FROM schedule")
+    schedule = cursor.fetchall()
+    for plane_S in schedule:
+        for i in range (2):
+            print(f"{plane_S[i]}", end=" ")
+        print()
     d = int(num_inp())
-    if d == 0:
-        pS = '01:00'
-    elif d == 1:
-        pS = '03:45'
-    elif d == 2:
-        pS = '06:00'
-    elif d == 3:
-        pS = '08:45'
-    elif d == 4:
-        pS = '10:00'
-    elif d == 5:
-        pS = '15:45'
-    elif d == 6:
-        pS = '17:00'
-    elif d == 7:
-        pS = '21:00'
-    elif d == 8:
-        pS = '23:45'
+    cursor.execute(f"SELECT nome FROM airports WHERE id = {d}")
+    pS = cursor.fetchall()
     return pS
 
 def create_Voyager(Voyager):

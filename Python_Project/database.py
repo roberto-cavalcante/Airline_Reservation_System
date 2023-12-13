@@ -20,3 +20,25 @@ cursor.execute("INSERT or IGNORE INTO airports (id, nome) VALUES (?, ?)", (0, 'M
 cursor.execute("INSERT or IGNORE INTO airports (id, nome) VALUES (?, ?)", (1, 'GRU - Aeroporto Internacional Guarulhos, São Paulo, Brasil'))
 cursor.execute("INSERT or IGNORE INTO airports (id, nome) VALUES (?, ?)", (2, 'SDU - Aeroporto Santos Dumont, Rio de Janeiro, Brasil'))
 cursor.execute("INSERT or IGNORE INTO airports (id, nome) VALUES (?, ?)", (3, 'CWB - Aeroporto Internacional Afonso Pena, Curitiba, Brasil'))
+
+# Creating Schedules
+schedule = '''
+    CREATE TABLE IF NOT EXISTS schedule (
+        id INTEGER PRIMARY KEY,
+        hora TEXT
+    )
+'''
+
+cursor.execute(schedule)
+
+# Insert schedule
+cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (0, '- 00:45'))
+cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (1, '- 01:30'))
+cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (2, '- 03:45'))
+cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (3, '- 06:30'))
+cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (4, '- 08:45'))
+cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (5, '- 10:00'))
+cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (6, '- 15:30'))
+cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (7, '- 19:00'))
+cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (8, '- 21:45'))
+cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (9, '- 23:00'))
