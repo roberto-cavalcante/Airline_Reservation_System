@@ -1,3 +1,4 @@
+import pickle
 from classes import *
 from database import *
 
@@ -55,8 +56,19 @@ def create_oneWay(Departure, Arrival, oneWay):
     print('Press 1 to no')
     b = int(num_inp())
     if b == 0:
-        o = oneWay(departure = Departure, arrival = Arrival, date = Date,
-                    adults = Adults, minor = Minor, schedule = Schedule, price = Price)
+        print('Is this a One Way travel?')
+        print('Press 0 to One Way')
+        print('Press 1 to Round trip')
+        a = int(num_inp())
+        if a == 0:
+            print('Please, press 0 if you do not registered')
+            print('Please, press 1 if you have registered')
+            c = int(num_inp())
+            if c == 0:
+                v = create_Voyager(Voyager)
+                oneway = oneWay(voyager = v, departure = Departure, arrival = Arrival, date = Date, adults = Adults, minor = Minor, schedule = Schedule, price = Price)
+                oneway_serialize = serialize(oneway)
+                cursor.execute("INSERT or IGNORE INTO travel (objeto) VALUES (?)", (oneway_serialize,))
     else:
         return
 
@@ -80,5 +92,12 @@ def create_Voyager(Voyager):
     last_name = input('Type your last name: ')
     password = input('Type your password: ')
     voyager = Voyager(cpf = cpf, first_name = first_name, last_name = last_name, password = password)
-    # save_voyagers(voyager)
+    voyager_serialize = serialize(voyager)
+    cursor.execute("INSERT or IGNORE INTO voyager (objeto) VALUES (?)", (voyager_serialize,))
     return voyager
+
+def serialize(classe):
+    return pickle.dumps(classe)
+
+def unserialize(classe):
+    return pickle.loads(classe)

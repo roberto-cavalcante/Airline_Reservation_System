@@ -6,7 +6,7 @@ database = sqlite3.connect('C:/Users/Roberto José/Documents/Projeto_de_Software
 # Cursor
 cursor = database.cursor()
 
-# Creating operational airports
+# Creating Operational Airports
 airports = '''
     CREATE TABLE IF NOT EXISTS airports (
         id INTEGER PRIMARY KEY,
@@ -28,7 +28,6 @@ schedule = '''
         hora TEXT
     )
 '''
-
 cursor.execute(schedule)
 
 # Insert schedule
@@ -42,3 +41,23 @@ cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (6, '-
 cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (7, '- 19:00'))
 cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (8, '- 21:45'))
 cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (9, '- 23:00'))
+
+
+
+# Creating Voyager
+voyager = '''
+    CREATE TABLE IF NOT EXISTS voyager (
+        id INTERGER PRIMARY KEY,
+        objeto BLOB
+    )
+'''
+cursor.execute(voyager)
+
+# Creating Travel
+travel = '''
+    CREATE TABLE IF NOT EXISTS travel (
+        id INTEGER PRIMARY KEY,
+        objeto BLOB
+    )
+'''
+cursor.execute(travel)

@@ -1,6 +1,17 @@
 class oneWay():
-    def __init__(self, Voyager, departure, arrival, date, adults, minor, schedule, price):
-        self.Voyager = Voyager
+    def __init__(self, voyager, departure, arrival, date, adults, minor, schedule, price):
+        self.Voyager = voyager
+        self.departure = departure
+        self.arrival = arrival
+        self.date = date
+        self.adults = adults
+        self.minor = minor
+        self.schedule = schedule
+        self.price = price
+        
+class roundTrip():
+    def __init__(self, voyager, departure, arrival, date, adults, minor, schedule, price):
+        self.Voyager = voyager
         self.departure = departure
         self.arrival = arrival
         self.date = date
