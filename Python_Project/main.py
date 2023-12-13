@@ -1,4 +1,5 @@
 from functions import *
+from database import *
 
 print('--------------------------------')
 print()
@@ -28,4 +29,6 @@ while True:
     
     else:
         print('This function is not implement yet')
+        database.commit()
+        database.close()
         break

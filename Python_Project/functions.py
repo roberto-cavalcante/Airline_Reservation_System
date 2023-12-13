@@ -1,21 +1,15 @@
-import json
 from classes import *
-
-JSON_FILE = 'C:/Users/Roberto José/Documents/Projeto_de_Software/Airline_Reservation_System/Python_Project/db.json'
-voyager_list_file = open(JSON_FILE)
-# with open(voyager_list_file) as f:
-voyager_list = json.load(voyager_list_file)
-
+from database import *
 
 def num_inp():
     return input('Please, choose a number: ')
 
 def choose_D():
     print('Choose your Departure: ')
-    print('Press 0 to "MCZ - Aeroporto Palmares, Maceió, Brasil"')
-    print('Press 1 to "GRU - Aeroporto Internacional Guarulhos, São Paulo, Brasil"')
-    print('Press 2 to "SDU - Aeroporto Santos Dumont, Rio de Janeiro, Brasil"')
-    print('Press 3 to "CWB - Aeroporto Internacional Afonso Pena, Curitiba, Brasil"')
+    cursor.execute("SELECT * FROM airports")
+    airport = cursor.fetchall()
+    for departure in airport:
+        print(departure)
     d = int(num_inp())
     if d == 0:
         departure = "MCZ - Aeroporto Palmares, Maceió, Brasil"
@@ -29,10 +23,10 @@ def choose_D():
 
 def choose_A():
     print('Choose your Arrival: ')
-    print('Press 0 to "MCZ - Aeroporto Internacional Zumbi Palmares, Maceió, Brasil"')
-    print('Press 1 to "GRU - Aeroporto Internacional Guarulhos, São Paulo, Brasil"')
-    print('Press 2 to "SDU - Aeroporto Santos Dumont, Rio de Janeiro, Brasil"')
-    print('Press 3 to "CWB - Aeroporto Internacional Afonso Pena, Curitiba, Brasil"')
+    cursor.execute("SELECT * FROM airports")
+    airport = cursor.fetchall()
+    for arrival in airport:
+        print(arrival)
     a = int(num_inp())
     if a == 0:
         arrival = "MCZ - Aeroporto Internacional Zumbi Palmares, Maceió, Brasil"
@@ -69,9 +63,7 @@ def create_oneWay(Departure, Arrival, oneWay):
     print('Press 1 to no')
     b = int(num_inp())
     if b == 0:
-        v = create_Voyager(Voyager)
-        db_voyager(v)
-        o = oneWay(v, departure = Departure, arrival = Arrival, date = Date,
+        o = oneWay(departure = Departure, arrival = Arrival, date = Date,
                     adults = Adults, minor = Minor, schedule = Schedule, price = Price)
     else:
         return
@@ -116,10 +108,3 @@ def create_Voyager(Voyager):
     voyager = Voyager(cpf = cpf, first_name = first_name, last_name = last_name, password = password)
     # save_voyagers(voyager)
     return voyager
-
-def db_voyager(Voyager):
-    v = vars(Voyager)
-    voyager_list['voyager'][Voyager.cpf] = v
-    with open(JSON_FILE, 'w', encoding='utf-8') as db_voyager:
-        json.dump(voyager_list, db_voyager)
-    return Voyager
