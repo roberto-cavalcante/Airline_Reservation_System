@@ -69,8 +69,9 @@ def planeSchedule():
             print(f"{plane_S[i]}", end=" ")
         print()
     d = int(num_inp())
-    cursor.execute(f"SELECT nome FROM airports WHERE id = {d}")
+    cursor.execute(f"SELECT hora FROM schedule WHERE id = {d}")
     pS = cursor.fetchall()
+    print(f"{pS[0]}")
     return pS
 
 def create_Voyager(Voyager):
