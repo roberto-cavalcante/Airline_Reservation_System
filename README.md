@@ -10,6 +10,14 @@ This is a repository for Software Project course.
 * Implementation
     - Flight Search [##########] 100%
     - Booking Management [###-------] 30%
+    - Online Check-in [----------] 0%
+    - Seat Selection [----------] 0%
+    - Baggage Information [----------] 0%
+    - Loyalty Program Management [----------] 0%
+    - Flight Status Updates [----------] 0%
+    - Special Requests [----------] 0%
+    - Multi-City Booking [----------] 0%
+    - Customer Support Interface [----------] 0%
 
 ### Author
 - [Roberto José de Mendonça Cavalcante](https://github.com/roberto-cavalcante/)
