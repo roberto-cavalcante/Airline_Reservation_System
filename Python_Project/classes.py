@@ -23,6 +23,7 @@ class roundTrip():
         self.schedule = schedule
         self.price = price
 
+
 class Voyager():
     def __init__(self, cpf, first_name, last_name, password):
         self.cpf = cpf

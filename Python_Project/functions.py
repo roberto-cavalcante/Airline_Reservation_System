@@ -80,6 +80,7 @@ def planeSchedule():
     # print(f"{pS[0]}")
     return pS
 
+
 def print_summary(Departure, Arrival, Date, Date_depart, Date_return, Adults, Minors, Price, Schedule, s):
     print()
     print('--------------------------------------------------')

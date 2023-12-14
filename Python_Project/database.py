@@ -53,6 +53,7 @@ voyager = '''
 '''
 cursor.execute(voyager)
 
+
 # Creating Travel
 travel = '''
     CREATE TABLE IF NOT EXISTS travel (
