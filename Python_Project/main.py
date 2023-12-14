@@ -25,8 +25,7 @@ while True:
     
     if choice == 0:
         print('You choose to make a Flight Search')
-        create_oneWay(choose_D(),choose_A(),oneWay)
-    
+        create_search(choose_D(),choose_A())
     else:
         print('This function is not implement yet')
         database.commit()

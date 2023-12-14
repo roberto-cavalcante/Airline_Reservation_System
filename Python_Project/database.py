@@ -47,7 +47,7 @@ cursor.execute("INSERT or IGNORE INTO schedule (id, hora) VALUES (?, ?)", (9, '-
 # Creating Voyager
 voyager = '''
     CREATE TABLE IF NOT EXISTS voyager (
-        id INTERGER PRIMARY KEY,
+        id INTEGER PRIMARY KEY,
         objeto BLOB
     )
 '''
