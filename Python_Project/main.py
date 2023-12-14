@@ -26,6 +26,21 @@ while True:
     if choice == 0:
         print('You choose to make a Flight Search')
         create_search(choose_D(),choose_A())
+    elif choice == 1:
+        print('You choose to make a Booking Management')
+        print('Press 0 if you want to book')
+        print('Press 1 if you want to cancel')
+        print('Press 2 if you want to modify')
+        b = int(num_inp())
+        if b == 0:
+            print('Is this a One Way search?')
+            print('Press 0 to One Way')
+            print('Press 1 to Round trip')
+            a = int(num_inp())
+            if a == 0:
+                create_oneWay(choose_D(), choose_A(), date_oneWay(), num_Adults(), num_Minors(), planeSchedule(), oneWay)
+            elif a == 1:
+                create_roundTrip(choose_D(), choose_A(), date_depart(), date_return(), num_Adults(), num_Minors(), planeSchedule(), roundTrip)
     else:
         print('This function is not implement yet')
         database.commit()
