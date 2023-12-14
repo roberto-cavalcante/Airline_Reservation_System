@@ -83,7 +83,7 @@ def planeSchedule():
 def print_summary(Departure, Arrival, Date, Date_depart, Date_return, Adults, Minors, Price, Schedule, s):
     print()
     print('--------------------------------------------------')
-    print("These are the information about so far:")
+    print("These are the information about:")
     print(f"Departure: {Departure[0]}")
     print(f"Arrival: {Arrival[0]}")
     if s == 0:
