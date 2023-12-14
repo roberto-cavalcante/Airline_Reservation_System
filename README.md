@@ -9,7 +9,7 @@ This is a repository for Software Project course.
 - In this software I use [Python](https://www.python.org/) and [Visual Studio Code](https://code.visualstudio.com/)
 * Implementation
     - Flight Search [##########] 100%
-    - Booking Management [###       ] 30%
+    - Booking Management [###-------] 30%
 
 ### Author
 - [Roberto José de Mendonça Cavalcante](https://github.com/roberto-cavalcante/)
